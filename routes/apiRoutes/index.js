@@ -57,5 +57,42 @@ apiRouter.post('/', async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 });
-
+apiRouter.delete('/:id', async (req, res) => {
+    // gets the id from req params
+    const requestedId = parseFloat(req.params.id)
+    // gets data from file
+    try{
+        const data = await fs.readFile(dbPath, 'utf-8');
+    let dbArry = [...JSON.parse(data)]
+    // if there are req params    
+    if (requestedId) {
+        // loops thru db and checks if req id is the same as array element
+        for (let i = 0; i < dbArry.length-1; i++) {
+          if (requestedId === dbArry[i].id) {
+            //shifts the elements over the deleted element
+                dbArry[i] = dbArry[[i+1]]
+                console.log(dbArry)
+            }
+        }
+        // removes extra element that carries no values
+        dbArry.pop()
+        // writes updated array to file
+        fs.writeFile('db.json', JSON.stringify(dbArry), (err) => {
+            if(err){
+                console.error(err)
+             }else{
+                 console.info(`file deleted and updated`)
+                 return
+             }
+         })
+        await res.json(dbArry);
+        return;
+      }
+    } catch (error) {
+        // if the readfile doesn't return relevant data
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+    
+});
 module.exports = apiRouter
