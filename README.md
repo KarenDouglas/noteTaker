@@ -1,5 +1,7 @@
 # Note Taker App
+- a simple full stack note taking application
 
+Live Site URL: [karendouglas.github.io/work-day-scheduler/](https://karendouglas.github.io/work-day-scheduler/)
 
 ![](./Assets/11-express-homework-demo.gif)()
 

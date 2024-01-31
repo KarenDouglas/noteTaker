@@ -57,14 +57,5 @@ apiRouter.post('/', async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 });
-apiRouter.get('/:id', async (req, res) => {
-    const requestedId = req.params.id
-    if (requestedId) {
-        for (let i = 0; i < dbPath.length; i++) {
-          if (requestedId === dbPath[i].id) {
-            return await res.json(dbPath[i]);
-          }
-        }
-      }
-});
+
 module.exports = apiRouter
