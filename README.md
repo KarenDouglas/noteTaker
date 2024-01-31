@@ -1,9 +1,9 @@
 # Note Taker App
 - a simple full stack note taking application
 
-Live Site URL: [karendouglas.github.io/work-day-scheduler/](https://karendouglas.github.io/work-day-scheduler/)
+Live Site URL: [warm-fjord-32049-4d44124c5a12.herokuapp.com/](https://warm-fjord-32049-4d44124c5a12.herokuapp.com/)
 
-![](./Assets/11-express-homework-demo.gif)()
+![](./Assets/11-express-homework-demo.gif)
 
 
 
